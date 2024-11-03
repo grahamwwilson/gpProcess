@@ -32,6 +32,8 @@ cat ${CODEBASE}/Header-32field.txt qcombpairs-${RUN}.dat >qcombpairs-${RUN}.csv
 
 module load root
 
+cp ${CODEBASE}/dfplot.C .
+
 root -l -b -q 'dfplot.C('\"${RUN}\"')';
 
 exit
