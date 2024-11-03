@@ -11,7 +11,7 @@ cd $HOME/work/GPRuns/Run-${RUN}
 mkdir PP
 cd PP
 
-cp -p ../pairs.dat.gz .
+cp -p ../pair*.dat.gz .
 cp -p ../lumi.ee.out.gz lumi-${RUN}.ee.out.gz
 gunzip lumi-${RUN}.ee.out.gz
 ${CODEBASE}/delLL.sh lumi-${RUN}.ee.out
