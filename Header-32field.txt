@@ -1,0 +1,1 @@
+label1 E1 bx1 by1 bz1 x1 y1 z1 f1 label2 E2 bx2 by2 bz2 x2 y2 z2 f2 pabel1 E1p bx1p by1p bz1p x1p y1p z1p f1p pabel2 E2p bx2p by2p bz2p x2p y2p z2p f2p
