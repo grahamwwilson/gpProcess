@@ -36,4 +36,10 @@ cp ${CODEBASE}/dfplot.C .
 
 root -l -b -q 'dfplot.C('\"${RUN}\"')';
 
+cat ${CODEBASE}/LumiHeader-17field.txt lumi-${RUN}.ee.out >lumiee-${RUN}.csv
+cp ${CODEBASE}/dlplot.C .
+root -l -b -q 'dlplot.C('\"${RUN}\"')';
+
+rm lumiee-${RUN}.csv
+
 exit
