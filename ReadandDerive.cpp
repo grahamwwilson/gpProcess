@@ -11,11 +11,12 @@
 #include <algorithm> //sort
 #include <cmath>
 #include <random>
-#include <TRandom3.h>
-#include <TMath.h>   //TMath::Prob
-#include <TH1D.h>
-#include <TH2D.h>
-#include <TFile.h>
+// Remove unnecessary ROOT dependencies
+//#include <TRandom3.h>
+//#include <TMath.h>   //TMath::Prob
+//#include <TH1D.h>
+//#include <TH2D.h>
+//#include <TFile.h>
 #include <vector>    
 #include <cstdlib>
 #include <fstream>
