@@ -379,22 +379,22 @@ void Reader(int nevents, std::string infilename, unsigned long int seed){
     cout << " " << endl;
     cout << " BhabhaLumiEvent structs sorted by event id (smaller id is earlier in the collision).  " << endl;
     cout << " " << endl;   
-    cout << "        ID    t    x [nm]       y [nm]       z [um]      E1     px1       py1      pz1     E2     px2    py2    pz2  " << endl;
-    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+    cout << "        ID    t           x [nm]          y [nm]         z [um]        E1          px1         py1         pz1        E2        px2        py2        pz2  " << endl;
+    cout << "-----------------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
     for (auto & el : vecb){
         cout << setw(10) << el.id << " "
              << scientific << setprecision(8) << setw(10) << el.t << " "        
-             << scientific << setprecision(6) << setw(12) << el.x << " " 
-             << scientific << setprecision(6) << setw(12) << el.y << " " 
-             << scientific << setprecision(6) << setw(12) << el.z << " " 
-             << scientific << setprecision(6) << setw(12) << el.pe[0] << " " 
-             << scientific << setprecision(6) << setw(12) << el.pe[1] << " " 
-             << scientific << setprecision(6) << setw(12) << el.pe[2] << " " 
-             << scientific << setprecision(6) << setw(12) << el.pe[3] << " " 
-             << scientific << setprecision(6) << setw(12) << el.pp[0] << " " 
-             << scientific << setprecision(6) << setw(12) << el.pp[1] << " " 
-             << scientific << setprecision(6) << setw(12) << el.pp[2] << " " 
-             << scientific << setprecision(6) << setw(12) << el.pp[3] << " "              
+             << scientific << setprecision(6) << setw(14) << el.x << " " 
+             << scientific << setprecision(6) << setw(14) << el.y << " " 
+             << scientific << setprecision(6) << setw(14) << el.z << " " 
+             << scientific << setprecision(6) << setw(14) << el.pe[0] << " " 
+             << scientific << setprecision(6) << setw(14) << el.pe[1] << " " 
+             << scientific << setprecision(6) << setw(14) << el.pe[2] << " " 
+             << scientific << setprecision(6) << setw(14) << el.pe[3] << " " 
+             << scientific << setprecision(6) << setw(14) << el.pp[0] << " " 
+             << scientific << setprecision(6) << setw(14) << el.pp[1] << " " 
+             << scientific << setprecision(6) << setw(14) << el.pp[2] << " " 
+             << scientific << setprecision(6) << setw(14) << el.pp[3] << " "              
              << endl;                                                               
     }    
     
