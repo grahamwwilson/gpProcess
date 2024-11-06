@@ -24,7 +24,8 @@ Pieces.
       
    Run the ReadandDerive executable that superimposes initial Bhabha scattering e+e- pairs 
    on "luminosity events". May make sense to make the output dumps persistent as files.
-   Currently this just prints the DerivedLumi and BhabhaLumiEvent structs for the first 10 events.
+   Currently just prints the DerivedLumi and BhabhaLumiEvent structs for the first 10 events. 
+   It also fills some histograms that are saved in EMD-${RUN}-Analysis.root.
    
    The ReadandDerive.cpp code has a few options. Do ${CODEBASE}/ReadandDerive -h to see them. 
    This is I think a quite good way - even dare I say exemplary way to run code in 

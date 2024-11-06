@@ -53,6 +53,7 @@ rm *.C
 # Run example ReadandDerive code
 ${CODEBASE}/ReadandDerive -h
 ${CODEBASE}/ReadandDerive -n 10 >RandD-${RUN}.out
+mv EMD-Analysis.root EMD-${RUN}-Analysis.root
 
 # Run current eepairs file analysis
 cp ${CODEBASE}/Ana.* .

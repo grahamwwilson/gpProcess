@@ -11,12 +11,11 @@
 #include <algorithm> //sort
 #include <cmath>
 #include <random>
-// Remove unnecessary ROOT dependencies
-//#include <TRandom3.h>
-//#include <TMath.h>   //TMath::Prob
-//#include <TH1D.h>
-//#include <TH2D.h>
-//#include <TFile.h>
+#include <TRandom3.h>
+#include <TMath.h>   //TMath::Prob
+#include <TH1D.h>
+#include <TH2D.h>
+#include <TFile.h>
 #include <vector>    
 #include <cstdlib>
 #include <fstream>
@@ -120,7 +119,7 @@ void Reader(int nevents, std::string infilename, unsigned long int seed){
 //    ifstream myfile("/home/graham/beamstats/lumi-Z-89.ee.out");    
     myfile.open(infilename);    
     
-    TFile *f = new TFile("EMD-Analysis-Run113.root","RECREATE");
+    TFile *f = new TFile("EMD-Analysis.root","RECREATE");
     TH1D* hECM = new TH1D("hECM","; Center-of-mass energy/Nominal; Events per 0.001 bin",750, 0.95, 1.025);    
     TH1D* hE1 = new TH1D("hE1","; Beam 1 E/Enominal; Events per 0.001 bin",750, 0.95, 1.025);
     TH1D* hE2 = new TH1D("hE2","; Beam 2 E/Enominal; Events per 0.001 bin",750, 0.95, 1.025);    
