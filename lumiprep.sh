@@ -49,4 +49,8 @@ rm lumiee-${RUN}.csv
 #Clean up any remaining intermediate files ?
 rm *.C
 
+#Run example ReadandDerive 
+${CODEBASE}/ReadandDerive -h
+${CODEBASE}/ReadandDerive -n 10 >RandD-${RUN}.out
+
 exit

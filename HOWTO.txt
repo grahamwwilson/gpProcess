@@ -1,0 +1,39 @@
+Code to process Guinea-PIG files is in lumiprep.sh.
+
+This is still a WIP but can be launched as a batch job using slurm_lumiprep.sh 
+once GP jobs finish (or can be integrated with the GP job).
+This creates a sub-directrory named PP (for post-processing).
+
+Pieces.
+
+1. Prepare the pair files with the information from the tracked electron-positron pair 
+   (here the scattered Bhabha event).
+   The result is a root file eg. Z-126.root that contains a TTree with 32 fields.
+   These are the eepairs root files.
+   
+2. Prepare a lumi TTree with the information from the lumi.ee.out file.
+
+3. Make sure the ReadandDerive executable is made.
+   Do
+      module load root
+      ./cl.sh ReadandDerive from the ${CODEBASE} directory.
+      
+   Run the ReadandDerive executable that superimposes initial Bhabha scattering e+e- pairs 
+   on "luminosity events". May make sense to make the output dumps persistent as files.
+   Currently this just prints the DerivedLumi and BhabhaLumiEvent structs for the first 10 events.
+   
+   The code has a few options. Do ${CODEBASE}/ReadandDerive -h to see them.
+   
+(Still to port to HPC)   
+4. Run the "analysis" code that analyses the eepairs ROOT files. This will likely need 
+   continued development.
+   It consists of two files.
+   Ana.C and Ana.h
+   
+   So the procedure is 
+   
+   cp $CODEBASE/Ana.C .
+   cp $CODEBASE/Ana.h .
+   root -l Z-126.root
+   t->Process("Ana.C+")
+   mv Ana.root Ana-Z-126.roto
