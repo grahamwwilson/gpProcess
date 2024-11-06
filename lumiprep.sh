@@ -1,5 +1,6 @@
 #!/bin/sh
 #
+#
 # Process Guinea-PIG files for specified run on HPC.
 #
 
@@ -14,7 +15,7 @@ cd $HOME/work/GPRuns/Run-${RUN}
 mkdir PP
 cd PP
 
-# Prepares "pairs" files for analayzing the scattered Bhabhas after EM deflection
+# Prepares "pairs" files for analyzing the scattered Bhabhas after EM deflection
 cp -p ../pair*.dat.gz .
 gunzip pairs.dat.gz
 mv pairs.dat pairs-${RUN}.dat
@@ -46,11 +47,22 @@ root -l -b -q 'dlplot.C('\"${RUN}\"')';
 
 rm lumiee-${RUN}.csv
 
-#Clean up any remaining intermediate files ?
+# Clean up any remaining intermediate files ?
 rm *.C
 
-#Run example ReadandDerive 
+# Run example ReadandDerive code
 ${CODEBASE}/ReadandDerive -h
 ${CODEBASE}/ReadandDerive -n 10 >RandD-${RUN}.out
+
+# Run current eepairs file analysis
+cp ${CODEBASE}/Ana.* .
+cp ${CODEBASE}/macro.C .
+# Run root in "batch mode" using macro.C to process the eepairs root file 
+root -l -b -q ${RUN}.root macro.C
+mv Ana.root Ana-${RUN}.root
+# Clean up
+rm Ana_*
+rm *.C
+rm *.h
 
 exit

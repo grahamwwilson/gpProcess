@@ -1,8 +1,12 @@
+Logfile with updates
+06-NOV-2024.  Initial documentation
+
 Code to process Guinea-PIG files is in lumiprep.sh.
 
 This is still a WIP but can be launched as a batch job using slurm_lumiprep.sh 
 once GP jobs finish (or can be integrated with the GP job).
-This creates a sub-directrory named PP (for post-processing).
+This creates a sub-directrory named PP (for post-processing) in each GP output directory.
+It likely may need to be customized to your setup.
 
 Pieces.
 
@@ -22,18 +26,25 @@ Pieces.
    on "luminosity events". May make sense to make the output dumps persistent as files.
    Currently this just prints the DerivedLumi and BhabhaLumiEvent structs for the first 10 events.
    
-   The code has a few options. Do ${CODEBASE}/ReadandDerive -h to see them.
+   The ReadandDerive.cpp code has a few options. Do ${CODEBASE}/ReadandDerive -h to see them. 
+   This is I think a quite good way - even dare I say exemplary way to run code in 
+   various different configurations.
+   Please have a look at the code it also includes the varius Lorentz boosts.
+     
+4. Run the "analysis" code that analyses the eepairs ROOT files and creates a ROOT file 
+   with the results (here Ana-${RUN}.root). This will likely need further 
+   and continuing development. It consists of two files, Ana.C and Ana.h.
+   Normally Ana.h will not need to be further changed.
+   The macro.C code launches Ana.C.
    
-(Still to port to HPC)   
-4. Run the "analysis" code that analyses the eepairs ROOT files. This will likely need 
-   continued development.
-   It consists of two files.
-   Ana.C and Ana.h
-   
-   So the procedure is 
-   
-   cp $CODEBASE/Ana.C .
-   cp $CODEBASE/Ana.h .
-   root -l Z-126.root
-   t->Process("Ana.C+")
-   mv Ana.root Ana-Z-126.roto
+   The script snippet that does this is
+   # Run current eepairs file analysis
+   cp ${CODEBASE}/Ana.* .
+   cp ${CODEBASE}/macro.C .
+   # Run root in "batch mode" using macro.C to process the eepairs root file 
+   root -l -b -q ${RUN}.root macro.C
+   mv Ana.root Ana-${RUN}.root
+   # Clean up
+   rm Ana_*
+   rm *.C
+   rm *.h
