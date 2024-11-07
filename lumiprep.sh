@@ -2,6 +2,7 @@
 #
 #
 # Process Guinea-PIG files for specified run on HPC.
+# This has four main parts as documented below.
 #
 
 echo 'Running with HOME = '${HOME}
@@ -15,7 +16,9 @@ cd $HOME/work/GPRuns/Run-${RUN}
 mkdir PP
 cd PP
 
-# Prepares "pairs" files for analyzing the scattered Bhabhas after EM deflection
+# -----------------------------------------------------------------------------
+# STEP 1
+# Prepare "pairs" files for analyzing the scattered Bhabhas after EM deflection
 cp -p ../pair*.dat.gz .
 gunzip pairs.dat.gz
 mv pairs.dat pairs-${RUN}.dat
@@ -37,6 +40,10 @@ cp ${CODEBASE}/dfplot.C .
 root -l -b -q 'dfplot.C('\"${RUN}\"')';
 rm qcombpairs-${RUN}.csv
 
+# -----------------------------------------------------------------------------
+# STEP 2
+# Prepare lumi root file
+
 cp -p ../lumi.ee.out.gz lumi-${RUN}.ee.out.gz
 gunzip lumi-${RUN}.ee.out.gz
 ${CODEBASE}/delLL.sh lumi-${RUN}.ee.out
@@ -50,11 +57,15 @@ rm lumiee-${RUN}.csv
 # Clean up any remaining intermediate files ?
 rm *.C
 
+# -----------------------------------------------------------------------------
+# STEP 3
 # Run example ReadandDerive code
 ${CODEBASE}/ReadandDerive -h
 ${CODEBASE}/ReadandDerive -n 10 >RandD-${RUN}.out
 mv EMD-Analysis.root EMD-${RUN}-Analysis.root
 
+# -----------------------------------------------------------------------------
+# STEP 4
 # Run current eepairs file analysis
 cp ${CODEBASE}/Ana.* .
 cp ${CODEBASE}/macro.C .
