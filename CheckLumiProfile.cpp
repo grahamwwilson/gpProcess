@@ -89,7 +89,9 @@ void Reader(std::string infilename, std::string rfilename){
     cout << "nbins = " << nbins << endl;
     TH1D* lTot  = new TH1D("lTot","One ILC Z Bunch Crossing; Computational Step Number; Total Lumi [/(mb*step*BX)]",nbins, 0.5, double(nbins)+0.5 );
     TH1D* lPeak = new TH1D("lPeak","One ILC Z Bunch Crossing; Computational Step Number; Peak Lumi [/(mb*step*BX)]",nbins, 0.5, double(nbins)+0.5 );  
-    TH1D* lPeakTotRatio = new TH1D("lPeakTotRatio","One ILC Z Bunch Crossing; Computational Step Number; Peak Lumi / Total Lumi",nbins, 0.5, double(nbins)+0.5 );       
+    TH1D* lPeakTotRatio = new TH1D("lPeakTotRatio","One ILC Z Bunch Crossing; Computational Step Number; Peak Lumi / Total Lumi",nbins, 0.5, double(nbins)+0.5 );
+    TH1D* fTot  = new TH1D("fTot","One ILC Z Bunch Crossing; Computational Step Number; Total Lumi Probability Mass Function",nbins, 0.5, double(nbins)+0.5 );
+    TH1D* fPeak = new TH1D("fPeak","One ILC Z Bunch Crossing; Computational Step Number; Peak Lumi Probability Mass Function",nbins, 0.5, double(nbins)+0.5 );           
     
 // Print a header
     cout << " " << endl;
@@ -109,6 +111,12 @@ void Reader(std::string infilename, std::string rfilename){
         lumiSumTot += el.lumiTot;
         lumiSumPeak += el.lumiPeak; 
     }
+ // Second-pass to produce normalized plots
+    for (auto & el : v){
+        fTot->Fill(el.step, el.lumiTot/lumiSumTot); 
+        fPeak->Fill(el.step, el.lumiPeak/lumiSumPeak);
+    }
+    
     cout << "Summed LumiTot = "  << scientific << setprecision(5) << setw(12) << lumiSumTot << endl;
     cout << "Summed LumiPeak = " << scientific << setprecision(5) << setw(12) << lumiSumPeak << endl;
     cout << "Ratio = " << fixed << setprecision(6) << setw(12) << lumiSumPeak/lumiSumTot << endl;
