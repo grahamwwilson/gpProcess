@@ -123,13 +123,13 @@ void Reader(std::string infilename, std::string rfilename){
 
 int main(int argc, char** argv){
 
-    CLI::App app{"Fill structs with GP lumi.ee.out luminosity events"};  
+    CLI::App app{"Histogram binned luminosity information"};  
         
     std::string filename = "GPLumi-Summary.txt";
-    app.add_option("-i,--ifile", filename, "Input data file"); 
+    app.add_option("-i,--ifile", filename, "Input data file (default: GPLumi-Summary.txt"); 
     
     std::string rfilename = "GPLumi.root";
-    app.add_option("-r,--rfile", rfilename, "Output ROOT file");     
+    app.add_option("-r,--rfile", rfilename, "Output ROOT file (default: GPLumi.root)");     
     
     CLI11_PARSE(app, argc, argv);
 
