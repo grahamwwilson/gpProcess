@@ -10,6 +10,9 @@ It likely may need to be customized to your setup.
 
 Pieces.
 
+0. Process the GPResults.out file making histograms from the binned luminosity numbers
+   (code is in lumiprofile.sh)
+
 1. Prepare the pair files with the information from the tracked electron-positron pair 
    (here the scattered Bhabha event).
    The result is a root file eg. Z-126.root that contains a TTree with 32 fields.

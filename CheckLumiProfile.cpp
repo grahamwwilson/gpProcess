@@ -60,9 +60,7 @@ void Reader(std::string infilename, std::string rfilename){
     std::ifstream myfile;   
     myfile.open(infilename);    
     
-    TFile *f = new TFile(rfilename.c_str(),"RECREATE");
-    
-    TH1D* hECM = new TH1D("hECM","; Center-of-mass energy/Nominal; Events per 0.001 bin",750, 0.95, 1.025);               
+    TFile *f = new TFile(rfilename.c_str(),"RECREATE");              
 
     const double LSCALEFACTOR=1.0e-31;          // multiplicative scale factor to inverse mb per step per BX
 
@@ -130,7 +128,7 @@ int main(int argc, char** argv){
     std::string filename = "GPLumi-Summary.txt";
     app.add_option("-i,--ifile", filename, "Input data file"); 
     
-    std::string rfilename = "GPLumi-Z-127.root";
+    std::string rfilename = "GPLumi.root";
     app.add_option("-r,--rfile", rfilename, "Output ROOT file");     
     
     CLI11_PARSE(app, argc, argv);

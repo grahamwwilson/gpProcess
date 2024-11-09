@@ -15,6 +15,12 @@ cd $HOME/work/GPRuns/Run-${RUN}
 
 mkdir PP
 cd PP
+module load root
+
+#----------------------------------------------------------------------
+# STEP 0: Parse the results file for just the binned luminosity numbers
+#----------------------------------------------------------------------
+${CODEBASE}/lumiprofile.sh ${RUN}
 
 # -----------------------------------------------------------------------------
 # STEP 1
@@ -33,8 +39,6 @@ awk 'NR % 2 == 1 { printf "%s ", $0; next } { print }' pairs-${RUN}_sorted.dat >
 paste -d' ' cpairs0-${RUN}.dat cpairs-${RUN}_sorted.dat >qcombpairs-${RUN}.dat
 cat ${CODEBASE}/Header-32field.txt qcombpairs-${RUN}.dat >qcombpairs-${RUN}.csv
 rm *.dat
-
-module load root
 
 cp ${CODEBASE}/dfplot.C .
 root -l -b -q 'dfplot.C('\"${RUN}\"')';

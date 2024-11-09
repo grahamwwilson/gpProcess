@@ -6,7 +6,7 @@
 # Here we don't use ROOT so don't make it depend on it.
 
 # TODO make this step machine dependent
-module load root
+#module load root
 
 target=$1
 echo 'Compiling (with ROOT libraries): '${target}.cpp
