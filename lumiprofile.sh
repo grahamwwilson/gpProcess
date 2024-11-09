@@ -42,6 +42,7 @@ head -n ${LLINE} GPResults.out > temp && mv temp GPResults.out
 head -n -3 GPResults.out > temp && mv temp GPLumi-Summary.txt
 rm GPResults.out
 
+${CODEBASE}/CheckLumiProfile -h
 ${CODEBASE}/CheckLumiProfile >CheckLumi.out
 
 mv GPLumi.root GPLumi-${RUN}.root
