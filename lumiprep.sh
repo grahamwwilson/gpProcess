@@ -13,8 +13,13 @@ RUN=$1
 echo 'Found RUN = '${RUN}
 cd $HOME/work/GPRuns/Run-${RUN}
 
-mkdir PP
+if [ -d PP ]; then
+   echo "PP directory already exists .."
+else   
+   mkdir PP
+fi
 cd PP
+
 module load root
 
 #----------------------------------------------------------------------
