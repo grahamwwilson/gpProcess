@@ -33,6 +33,10 @@
 
 const double EBNOM = 45.6;
 // Declare histograms globally here
+
+TH2D *hdefl0 = new TH2D("hdefl0",";e- deflection [urad];e+ deflection [urad]",80,-40.0,40.0,80,-40.0,40.0);
+TH2D *hdefl1 = new TH2D("hdefl1",";e- deflection [urad];e+ deflection [urad]",80,-40.0,40.0,80,-40.0,40.0);
+
 TH1D *hE1 = new TH1D("hE1","; E1/Enominal; Events per bin ",1200,0.95,1.01); 
 TH1D *hE2 = new TH1D("hE2","; E2/Enominal; Events per bin ",1200,0.95,1.01); 
 TH1D *hECM = new TH1D("hECM","; ECM/ECMnominal; Events per bin ",1200,0.95,1.01);
@@ -266,7 +270,10 @@ bool Ana::Process(Long64_t entry)
    double thele = theta(fele);
    double thelep = theta(felep);
    double thpos = theta(fpos);
-   double thposp = theta(fposp);   
+   double thposp = theta(fposp); 
+   
+   double edefl =   1.0e6*(thele - thelep);
+   double pdefl =  -1.0e6*(thpos - thposp);
    
    heleDeflectionTheta->Fill(1.0e6*(thele - thelep));  
    hposDeflectionTheta->Fill(-1.0e6*(thpos - thposp)); 
@@ -282,8 +289,16 @@ bool Ana::Process(Long64_t entry)
    if ( (*label1)%10==8 ) heleDeflectionTheta8->Fill(1.0e6*(thele - thelep));
    if ( (*label1)%10==9 ) heleDeflectionTheta9->Fill(1.0e6*(thele - thelep)); 
    
-   if ( (*label1)%2==0 ) heleDeflectionTTheta0->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%2==1 ) heleDeflectionTTheta1->Fill(1.0e6*(thele - thelep));     
+   if ( (*label1)%2==0 ) {
+       heleDeflectionTTheta0->Fill(1.0e6*(thele - thelep));
+       hposDeflectionTTheta0->Fill(-1.0e6*(thpos - thposp));
+       hdefl0->Fill(edefl,pdefl);
+   }
+   if ( (*label1)%2==1 ) {
+       heleDeflectionTTheta1->Fill(1.0e6*(thele - thelep));  
+       hposDeflectionTTheta1->Fill(-1.0e6*(thpos - thposp));
+       hdefl1->Fill(edefl,pdefl);      
+   }   
    
    if ( (*label1)%10==0 ) hposDeflectionTheta0->Fill(-1.0e6*(thpos - thposp));
    if ( (*label1)%10==1 ) hposDeflectionTheta1->Fill(-1.0e6*(thpos - thposp));
@@ -295,9 +310,6 @@ bool Ana::Process(Long64_t entry)
    if ( (*label1)%10==7 ) hposDeflectionTheta7->Fill(-1.0e6*(thpos - thposp));
    if ( (*label1)%10==8 ) hposDeflectionTheta8->Fill(-1.0e6*(thpos - thposp));
    if ( (*label1)%10==9 ) hposDeflectionTheta9->Fill(-1.0e6*(thpos - thposp)); 
-   
-   if ( (*label1)%2==0 ) hposDeflectionTTheta0->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%2==1 ) hposDeflectionTTheta1->Fill(-1.0e6*(thpos - thposp));                           
    
    if( 1.0e6*(thele - thelep) < -20.0 ){
       cout << "e- Underflow event (urad) " << (*label1) << " " << 1.0e6*thele << " " << 1.0e6*thelep << " " << 1.0e6*(thele - thelep) << endl;
