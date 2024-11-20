@@ -48,7 +48,7 @@ TH1D *hposDpy = new TH1D("hposDpy", "; Positron (pyp - py)/Ebnominal; Events per
 TH1D *hposDpz = new TH1D("hposDpz", "; Positron (pzp - pz)/Ebnominal; Events per bin ",20000,-0.005,0.005);
 TH1D *hposDp  = new TH1D("hposDp",  "; Positron (pp - p)/Ebnominal; Events per bin ",20000,-0.005,0.005);
 
-TH1D *heleDeflectionTheta = new TH1D("heleDeflectionTheta",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
+TH1D *heleDeflectionTheta =  new TH1D("heleDeflectionTheta",   "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 TH1D *heleDeflectionTheta0 = new TH1D("heleDeflectionTheta0",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 TH1D *heleDeflectionTheta1 = new TH1D("heleDeflectionTheta1",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 TH1D *heleDeflectionTheta2 = new TH1D("heleDeflectionTheta2",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
@@ -60,7 +60,10 @@ TH1D *heleDeflectionTheta7 = new TH1D("heleDeflectionTheta7",  "; Electron EM th
 TH1D *heleDeflectionTheta8 = new TH1D("heleDeflectionTheta8",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 TH1D *heleDeflectionTheta9 = new TH1D("heleDeflectionTheta9",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 
-TH1D *hposDeflectionTheta = new TH1D("hposDeflectionTheta",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
+TH1D *heleDeflectionTTheta0 = new TH1D("heleDeflectionTTheta0",  "; Electron EM theta deflection [urad]; Events per bin ",80,-40.0,40.0);
+TH1D *heleDeflectionTTheta1 = new TH1D("heleDeflectionTTheta1",  "; Electron EM theta deflection [urad]; Events per bin ",80,-40.0,40.0);
+
+TH1D *hposDeflectionTheta =  new TH1D("hposDeflectionTheta",   "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 TH1D *hposDeflectionTheta0 = new TH1D("hposDeflectionTheta0",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 TH1D *hposDeflectionTheta1 = new TH1D("hposDeflectionTheta1",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 TH1D *hposDeflectionTheta2 = new TH1D("hposDeflectionTheta2",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
@@ -72,6 +75,8 @@ TH1D *hposDeflectionTheta7 = new TH1D("hposDeflectionTheta7",  "; Positron EM th
 TH1D *hposDeflectionTheta8 = new TH1D("hposDeflectionTheta8",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 TH1D *hposDeflectionTheta9 = new TH1D("hposDeflectionTheta9",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
 
+TH1D *hposDeflectionTTheta0 = new TH1D("hposDeflectionTTheta0",  "; Positron EM theta deflection [urad]; Events per bin ",80,-40.0,40.0);
+TH1D *hposDeflectionTTheta1 = new TH1D("hposDeflectionTTheta1",  "; Positron EM theta deflection [urad]; Events per bin ",80,-40.0,40.0);
 
 TH1D *heleDeflectionPhi = new TH1D("heleDeflectionPhi",  "; Electron EM phi deflection [mrad]; Events per bin ",100,-2.0,2.0);
 TH1D *hposDeflectionPhi = new TH1D("hposDeflectionPhi",  "; Positron EM phi deflection [mrad]; Events per bin ",100,-2.0,2.0);
@@ -275,7 +280,10 @@ bool Ana::Process(Long64_t entry)
    if ( (*label1)%10==6 ) heleDeflectionTheta6->Fill(1.0e6*(thele - thelep));
    if ( (*label1)%10==7 ) heleDeflectionTheta7->Fill(1.0e6*(thele - thelep));
    if ( (*label1)%10==8 ) heleDeflectionTheta8->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==9 ) heleDeflectionTheta9->Fill(1.0e6*(thele - thelep));   
+   if ( (*label1)%10==9 ) heleDeflectionTheta9->Fill(1.0e6*(thele - thelep)); 
+   
+   if ( (*label1)%2==0 ) heleDeflectionTTheta0->Fill(1.0e6*(thele - thelep));
+   if ( (*label1)%2==1 ) heleDeflectionTTheta1->Fill(1.0e6*(thele - thelep));     
    
    if ( (*label1)%10==0 ) hposDeflectionTheta0->Fill(-1.0e6*(thpos - thposp));
    if ( (*label1)%10==1 ) hposDeflectionTheta1->Fill(-1.0e6*(thpos - thposp));
@@ -286,7 +294,10 @@ bool Ana::Process(Long64_t entry)
    if ( (*label1)%10==6 ) hposDeflectionTheta6->Fill(-1.0e6*(thpos - thposp));
    if ( (*label1)%10==7 ) hposDeflectionTheta7->Fill(-1.0e6*(thpos - thposp));
    if ( (*label1)%10==8 ) hposDeflectionTheta8->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==9 ) hposDeflectionTheta9->Fill(-1.0e6*(thpos - thposp));                         
+   if ( (*label1)%10==9 ) hposDeflectionTheta9->Fill(-1.0e6*(thpos - thposp)); 
+   
+   if ( (*label1)%2==0 ) hposDeflectionTTheta0->Fill(-1.0e6*(thpos - thposp));
+   if ( (*label1)%2==1 ) hposDeflectionTTheta1->Fill(-1.0e6*(thpos - thposp));                           
    
    if( 1.0e6*(thele - thelep) < -20.0 ){
       cout << "e- Underflow event (urad) " << (*label1) << " " << 1.0e6*thele << " " << 1.0e6*thelep << " " << 1.0e6*(thele - thelep) << endl;
