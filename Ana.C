@@ -41,7 +41,8 @@ TH1D *hE1 = new TH1D("hE1","; E1/Enominal; Events per bin ",1200,0.95,1.01);
 TH1D *hE2 = new TH1D("hE2","; E2/Enominal; Events per bin ",1200,0.95,1.01); 
 TH1D *hECM = new TH1D("hECM","; ECM/ECMnominal; Events per bin ",1200,0.95,1.01);
 TH1D *hECMp = new TH1D("hECMp","; ECMp/ECMnominal; Events per bin ",1200,0.95,1.01); 
-TH1D *hdECM = new TH1D("hdECM","; (ECMp - ECM)/ECMnominal; Events per bin ",1200,-0.05,0.01); 
+TH1D *hdECM = new TH1D("hdECM","; (ECMp - ECM)/ECMnominal; Events per bin ",1200,-0.05,0.01);
+TH1D *hzVtx = new TH1D("hzVtx","; z (vertex) [um]; Events per bin ",100,-2000.0,2000.0); 
 
 TH1D *heleDpx = new TH1D("heleDpx", "; Electron (pxp - px)/Ebnominal; Events per bin ",20000,-0.005,0.005);
 TH1D *heleDpy = new TH1D("heleDpy", "; Electron (pyp - py)/Ebnominal; Events per bin ",20000,-0.005,0.005);
@@ -52,32 +53,32 @@ TH1D *hposDpy = new TH1D("hposDpy", "; Positron (pyp - py)/Ebnominal; Events per
 TH1D *hposDpz = new TH1D("hposDpz", "; Positron (pzp - pz)/Ebnominal; Events per bin ",20000,-0.005,0.005);
 TH1D *hposDp  = new TH1D("hposDp",  "; Positron (pp - p)/Ebnominal; Events per bin ",20000,-0.005,0.005);
 
-TH1D *heleDeflectionTheta =  new TH1D("heleDeflectionTheta",   "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta0 = new TH1D("heleDeflectionTheta0",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta1 = new TH1D("heleDeflectionTheta1",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta2 = new TH1D("heleDeflectionTheta2",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta3 = new TH1D("heleDeflectionTheta3",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta4 = new TH1D("heleDeflectionTheta4",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta5 = new TH1D("heleDeflectionTheta5",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta6 = new TH1D("heleDeflectionTheta6",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta7 = new TH1D("heleDeflectionTheta7",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta8 = new TH1D("heleDeflectionTheta8",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *heleDeflectionTheta9 = new TH1D("heleDeflectionTheta9",  "; Electron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
+TH1D *heleDeflectionTheta =  new TH1D("heleDeflectionTheta",   "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta0 = new TH1D("heleDeflectionTheta0",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta1 = new TH1D("heleDeflectionTheta1",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta2 = new TH1D("heleDeflectionTheta2",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta3 = new TH1D("heleDeflectionTheta3",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta4 = new TH1D("heleDeflectionTheta4",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta5 = new TH1D("heleDeflectionTheta5",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta6 = new TH1D("heleDeflectionTheta6",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta7 = new TH1D("heleDeflectionTheta7",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta8 = new TH1D("heleDeflectionTheta8",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *heleDeflectionTheta9 = new TH1D("heleDeflectionTheta9",  "; Electron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
 
 TH1D *heleDeflectionTTheta0 = new TH1D("heleDeflectionTTheta0",  "; Electron EM theta deflection [urad]; Events per bin ",80,-40.0,40.0);
 TH1D *heleDeflectionTTheta1 = new TH1D("heleDeflectionTTheta1",  "; Electron EM theta deflection [urad]; Events per bin ",80,-40.0,40.0);
 
-TH1D *hposDeflectionTheta =  new TH1D("hposDeflectionTheta",   "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta0 = new TH1D("hposDeflectionTheta0",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta1 = new TH1D("hposDeflectionTheta1",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta2 = new TH1D("hposDeflectionTheta2",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta3 = new TH1D("hposDeflectionTheta3",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta4 = new TH1D("hposDeflectionTheta4",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta5 = new TH1D("hposDeflectionTheta5",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta6 = new TH1D("hposDeflectionTheta6",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta7 = new TH1D("hposDeflectionTheta7",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta8 = new TH1D("hposDeflectionTheta8",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
-TH1D *hposDeflectionTheta9 = new TH1D("hposDeflectionTheta9",  "; Positron EM theta deflection [urad]; Events per bin ",125,-30.0,370.0);
+TH1D *hposDeflectionTheta =  new TH1D("hposDeflectionTheta",   "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta0 = new TH1D("hposDeflectionTheta0",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta1 = new TH1D("hposDeflectionTheta1",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta2 = new TH1D("hposDeflectionTheta2",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta3 = new TH1D("hposDeflectionTheta3",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta4 = new TH1D("hposDeflectionTheta4",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta5 = new TH1D("hposDeflectionTheta5",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta6 = new TH1D("hposDeflectionTheta6",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta7 = new TH1D("hposDeflectionTheta7",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta8 = new TH1D("hposDeflectionTheta8",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
+TH1D *hposDeflectionTheta9 = new TH1D("hposDeflectionTheta9",  "; Positron EM theta deflection [urad]; Events per bin ",260,-50.0,1250.0);
 
 TH1D *hposDeflectionTTheta0 = new TH1D("hposDeflectionTTheta0",  "; Positron EM theta deflection [urad]; Events per bin ",80,-40.0,40.0);
 TH1D *hposDeflectionTTheta1 = new TH1D("hposDeflectionTTheta1",  "; Positron EM theta deflection [urad]; Events per bin ",80,-40.0,40.0);
@@ -275,47 +276,47 @@ bool Ana::Process(Long64_t entry)
    double edefl =   1.0e6*(thele - thelep);
    double pdefl =  -1.0e6*(thpos - thposp);
    
-   heleDeflectionTheta->Fill(1.0e6*(thele - thelep));  
-   hposDeflectionTheta->Fill(-1.0e6*(thpos - thposp)); 
+   heleDeflectionTheta->Fill(edefl);  
+   hposDeflectionTheta->Fill(pdefl); 
    
-   if ( (*label1)%10==0 ) heleDeflectionTheta0->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==1 ) heleDeflectionTheta1->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==2 ) heleDeflectionTheta2->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==3 ) heleDeflectionTheta3->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==4 ) heleDeflectionTheta4->Fill(1.0e6*(thele - thelep));  
-   if ( (*label1)%10==5 ) heleDeflectionTheta5->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==6 ) heleDeflectionTheta6->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==7 ) heleDeflectionTheta7->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==8 ) heleDeflectionTheta8->Fill(1.0e6*(thele - thelep));
-   if ( (*label1)%10==9 ) heleDeflectionTheta9->Fill(1.0e6*(thele - thelep)); 
+   if ( (*label1)%10==0 ) heleDeflectionTheta0->Fill(edefl);
+   if ( (*label1)%10==1 ) heleDeflectionTheta1->Fill(edefl);
+   if ( (*label1)%10==2 ) heleDeflectionTheta2->Fill(edefl);
+   if ( (*label1)%10==3 ) heleDeflectionTheta3->Fill(edefl);
+   if ( (*label1)%10==4 ) heleDeflectionTheta4->Fill(edefl);  
+   if ( (*label1)%10==5 ) heleDeflectionTheta5->Fill(edefl);
+   if ( (*label1)%10==6 ) heleDeflectionTheta6->Fill(edefl);
+   if ( (*label1)%10==7 ) heleDeflectionTheta7->Fill(edefl);
+   if ( (*label1)%10==8 ) heleDeflectionTheta8->Fill(edefl);
+   if ( (*label1)%10==9 ) heleDeflectionTheta9->Fill(edefl); 
    
    if ( (*label1)%2==0 ) {
-       heleDeflectionTTheta0->Fill(1.0e6*(thele - thelep));
-       hposDeflectionTTheta0->Fill(-1.0e6*(thpos - thposp));
+       heleDeflectionTTheta0->Fill(edefl);
+       hposDeflectionTTheta0->Fill(pdefl);
        hdefl0->Fill(edefl,pdefl);
    }
    if ( (*label1)%2==1 ) {
-       heleDeflectionTTheta1->Fill(1.0e6*(thele - thelep));  
-       hposDeflectionTTheta1->Fill(-1.0e6*(thpos - thposp));
+       heleDeflectionTTheta1->Fill(edefl);  
+       hposDeflectionTTheta1->Fill(pdefl);
        hdefl1->Fill(edefl,pdefl);      
    }   
    
-   if ( (*label1)%10==0 ) hposDeflectionTheta0->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==1 ) hposDeflectionTheta1->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==2 ) hposDeflectionTheta2->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==3 ) hposDeflectionTheta3->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==4 ) hposDeflectionTheta4->Fill(-1.0e6*(thpos - thposp));  
-   if ( (*label1)%10==5 ) hposDeflectionTheta5->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==6 ) hposDeflectionTheta6->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==7 ) hposDeflectionTheta7->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==8 ) hposDeflectionTheta8->Fill(-1.0e6*(thpos - thposp));
-   if ( (*label1)%10==9 ) hposDeflectionTheta9->Fill(-1.0e6*(thpos - thposp)); 
+   if ( (*label1)%10==0 ) hposDeflectionTheta0->Fill(pdefl);
+   if ( (*label1)%10==1 ) hposDeflectionTheta1->Fill(pdefl);
+   if ( (*label1)%10==2 ) hposDeflectionTheta2->Fill(pdefl);
+   if ( (*label1)%10==3 ) hposDeflectionTheta3->Fill(pdefl);
+   if ( (*label1)%10==4 ) hposDeflectionTheta4->Fill(pdefl);  
+   if ( (*label1)%10==5 ) hposDeflectionTheta5->Fill(pdefl);
+   if ( (*label1)%10==6 ) hposDeflectionTheta6->Fill(pdefl);
+   if ( (*label1)%10==7 ) hposDeflectionTheta7->Fill(pdefl);
+   if ( (*label1)%10==8 ) hposDeflectionTheta8->Fill(pdefl);
+   if ( (*label1)%10==9 ) hposDeflectionTheta9->Fill(pdefl); 
    
-   if( 1.0e6*(thele - thelep) < -20.0 ){
-      cout << "e- Underflow event (urad) " << (*label1) << " " << 1.0e6*thele << " " << 1.0e6*thelep << " " << 1.0e6*(thele - thelep) << endl;
+   if( edefl < -20.0 ){
+      cout << "e- Underflow event (urad) " << (*label1) << " " << 1.0e6*thele << " " << 1.0e6*thelep << " " << edefl << endl;
    }
-   if( -1.0e6*(thpos - thposp) < -20.0 ){
-      cout << "e+ Underflow event (urad) " << (*label1) << " " << -1.0e6*thpos << " " << -1.0e6*thposp << " " << -1.0e6*(thpos - thposp) << endl;
+   if( pdefl < -20.0 ){
+      cout << "e+ Underflow event (urad) " << (*label1) << " " << -1.0e6*thpos << " " << -1.0e6*thposp << " " << pdefl << endl;
    }   
    
    double phele = phi(fele);
@@ -325,19 +326,20 @@ bool Ana::Process(Long64_t entry)
    
    double zave= ((*z1) + (*z2))/2.0;
    double zvtx = 1.0e-3*zave;
+   hzVtx->Fill(zvtx);
    
    heleDeflectionPhi->Fill(1.0e3*(phele - phelep));  
    hposDeflectionPhi->Fill(1.0e3*(phpos - phposp));   
    
-   heleDeflThetavsZ->Fill(zvtx, 1.0e6*(thele - thelep));  
-   hposDeflThetavsZ->Fill(zvtx, -1.0e6*(thpos - thposp));
+   heleDeflThetavsZ->Fill(zvtx, edefl);  
+   hposDeflThetavsZ->Fill(zvtx, pdefl);
 
-   heleDeflThetavsT->Fill(*label1,  1.0e6*(thele - thelep));  
-   hposDeflThetavsT->Fill(*label1, -1.0e6*(thpos - thposp));
+   heleDeflThetavsT->Fill(*label1, edefl);  
+   hposDeflThetavsT->Fill(*label1, pdefl);
 
    
-   heleDeflThetavsPhi->Fill(phele, 1.0e6*(thele - thelep));  
-   hposDeflThetavsPhi->Fill(phpos,-1.0e6*(thpos - thposp));   
+   heleDeflThetavsPhi->Fill(phele, edefl);  
+   hposDeflThetavsPhi->Fill(phpos, pdefl);   
    
    heleDeflPhivsPhi->Fill(phele, 1.0e3*(phele - phelep));  
    hposDeflPhivsPhi->Fill(phpos, 1.0e3*(phpos - phposp));         

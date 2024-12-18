@@ -83,7 +83,8 @@ root -l -b -q ${RUN}.root macro.C
 mv Ana.root Ana-${RUN}.root
 # Clean up
 rm Ana_*
-rm *.C
-rm *.h
+# Keep Ana.C and Ana.h so that they can be checked
+#rm *.C
+#rm *.h
 
 exit
