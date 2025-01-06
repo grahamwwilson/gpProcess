@@ -40,6 +40,7 @@ TH2D *hdefl1 = new TH2D("hdefl1",";e- deflection [urad];e+ deflection [urad]",80
 TH1D *hE1 = new TH1D("hE1","; E1/Enominal; Events per bin ",1200,0.95,1.01); 
 TH1D *hE2 = new TH1D("hE2","; E2/Enominal; Events per bin ",1200,0.95,1.01); 
 TH1D *hECM = new TH1D("hECM","; ECM/ECMnominal; Events per bin ",1200,0.95,1.01);
+TH1D *hECMNew = new TH1D("hECMNew","; ECM/ECMnominal; Events per bin ",8400,0.60,1.02);
 TH1D *hECMp = new TH1D("hECMp","; ECMp/ECMnominal; Events per bin ",1200,0.95,1.01); 
 TH1D *hdECM = new TH1D("hdECM","; (ECMp - ECM)/ECMnominal; Events per bin ",1200,-0.05,0.01);
 TH1D *hzVtx = new TH1D("hzVtx","; z (vertex) [um]; Events per bin ",100,-2000.0,2000.0); 
@@ -254,7 +255,8 @@ bool Ana::Process(Long64_t entry)
    
    hE1->Fill((*E1)/EBNOM);
    hE2->Fill(-(*E2)/EBNOM); 
-   hECM->Fill(mll/(2.0*EBNOM)); 
+   hECM->Fill(mll/(2.0*EBNOM));
+   hECMNew->Fill(mll/(2.0*EBNOM));     
    hECMp->Fill(mllp/(2.0*EBNOM));  
    hdECM->Fill( (mllp - mll)/(2.0*EBNOM));  
    
