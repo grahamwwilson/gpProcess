@@ -41,6 +41,7 @@ TH1D *hE1 = new TH1D("hE1","; E1/Enominal; Events per bin ",1200,0.95,1.01);
 TH1D *hE2 = new TH1D("hE2","; E2/Enominal; Events per bin ",1200,0.95,1.01); 
 TH1D *hECM = new TH1D("hECM","; ECM/ECMnominal; Events per bin ",1200,0.95,1.01);
 TH1D *hECMNew = new TH1D("hECMNew","; ECM/ECMnominal; Events per bin ",8400,0.60,1.02);
+TH1D *hECMNewest = new TH1D("hECMNewest","; ECM/ECMnominal; Events per bin ",16800,0.60,1.02);   // Finer resolution for better random sampling.
 TH1D *hECMN = new TH1D("hECMN","; ECM/ECMnominal; Events per bin ",2800,0.88,1.02);
 TH1D *hECMp = new TH1D("hECMp","; ECMp/ECMnominal; Events per bin ",1200,0.95,1.01); 
 TH1D *hdECM = new TH1D("hdECM","; (ECMp - ECM)/ECMnominal; Events per bin ",1200,-0.05,0.01);
@@ -258,6 +259,7 @@ bool Ana::Process(Long64_t entry)
    hE2->Fill(-(*E2)/EBNOM); 
    hECM->Fill(mll/(2.0*EBNOM));
    hECMNew->Fill(mll/(2.0*EBNOM));  
+   hECMNewest->Fill(mll/(2.0*EBNOM));    
    hECMN->Fill(mll/(2.0*EBNOM));       
    hECMp->Fill(mllp/(2.0*EBNOM));  
    hdECM->Fill( (mllp - mll)/(2.0*EBNOM));  
