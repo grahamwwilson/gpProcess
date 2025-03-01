@@ -5,6 +5,9 @@
 # This has four main parts as documented below.
 #
 
+module load root/6.32.2
+module list
+
 echo 'Running with HOME = '${HOME}
 
 CODEBASE=$HOME/work/gpProcess
@@ -19,8 +22,6 @@ else
    mkdir PP
 fi
 cd PP
-
-module load root
 
 #----------------------------------------------------------------------
 # STEP 0: Parse the results file for just the binned luminosity numbers
@@ -86,5 +87,7 @@ rm Ana_*
 # Keep Ana.C and Ana.h so that they can be checked
 #rm *.C
 #rm *.h
+
+module unload root/6.32.2
 
 exit
