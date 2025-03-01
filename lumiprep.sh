@@ -5,8 +5,9 @@
 # This has four main parts as documented below.
 #
 
-module load root/6.32.2
+module load root
 module list
+root --version
 
 echo 'Running with HOME = '${HOME}
 
@@ -88,6 +89,6 @@ rm Ana_*
 #rm *.C
 #rm *.h
 
-module unload root/6.32.2
+module unload root
 
 exit
