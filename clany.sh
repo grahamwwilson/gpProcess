@@ -1,16 +1,17 @@
 #!/bin/sh
 #
-# To compile filename.cpp  
-# ./clany.sh filename
+# To compile ReadandDerive.cpp  
+# ./cl.sh 
 # Then the executable can be executed using ./filename
-# Here we don't use ROOT so don't make it depend on it.
 
-# TODO make this step machine dependent
 module load root
+module list
 
 target=$1
 echo 'Compiling (with ROOT libraries): '${target}.cpp
 
 g++ -g -o ${target} ${target}.cpp `root-config --cflags --glibs`
+
+module unload root
 
 exit
